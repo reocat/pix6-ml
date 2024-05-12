@@ -67,6 +67,7 @@ jobs:
         cd out/slider/dist/
         mkdir mainline
         mv *img mainline
+      working-directory: workspace
     - name: Upload kernel
       uses: actions/upload-artifact@v4
       with:
