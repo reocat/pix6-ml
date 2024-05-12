@@ -47,7 +47,7 @@ jobs:
         repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
       working-directory: workspace
     - name: Fetch vendor_boot
-      run: wget https://sourceforge.net/projects/evolution-x/files/oriole/14/vendor_boot/vendor_boot.img
+      run: wget https://github.com/reocat/pix6-ml/blob/main/vendor_boot.img
       working-directory: workspace
     - name: Extract ramdisk
       run: |
