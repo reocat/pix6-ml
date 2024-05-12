@@ -71,4 +71,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Mainline-${{ steps.get_time.outputs.TIME }}
-        path: "workspace/out/slider/dist/mainline*"
+        path: "workspace/out/slider/dist/mainline/*"
