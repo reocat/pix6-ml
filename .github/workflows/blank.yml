@@ -53,3 +53,8 @@ jobs:
     - name: Compile kernel
       run: tools/bazel run --config=fast --config=stamp //private/google-modules/soc/gs:slider_dist
       working-directory: workspace
+    - name: Upload kernel
+      uses: actions/upload-artifact@v4
+      with:
+        name: Mainline-${{ steps.get_time.outputs.TIME }}
+        path: "workspace/kernel/out/slider/dist"
