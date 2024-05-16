@@ -26,8 +26,11 @@ jobs:
         java-version: '8'  
     - name: Install repo
       run: |
-        wget https://dl.google.com/developers/android/vic/images/factory/oriole_beta-ap31.240426.022-factory-4e8d2826.zip
+        wget https://dl.google.com/developers/android/vic/images/factory/oriole_beta-ap31.240426.022-factory-4e8d2826.zip >> /dev/null 2>&1  
         mkdir unpack
         unzip oriole_beta-ap31.240426.022-factory-4e8d2826.zip -d unpack
-        ls unpack
+        cd unpack/oriole_beta-ap31.240426.022
+        mkdir rom
+        unzip image* -d rom
+        ls rom
         pwd
