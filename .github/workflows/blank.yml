@@ -42,13 +42,9 @@ jobs:
         git config --global user.email "ng.ct_ml@tuta.io"
         repo init -u https://android.googlesource.com/kernel/manifest -b gs-android-gs-raviole-mainline
       id: pwd
-    - name: Repo Sync
-      run: |
-        repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
-      working-directory: workspace
     - name: Fetch vendor_boot
       run: |
-        aria2c -j $(nproc --all) https://dl.google.com/developers/android/vic/images/factory/oriole_beta-ap31.240426.022-factory-4e8d2826.zip >> /dev/null 2>&
+        aria2c -j $(nproc --all) https://dl.google.com/developers/android/vic/images/factory/oriole_beta-ap31.240426.022-factory-4e8d2826.zip
         mkdir unpack
         unzip oriole_beta-ap31.240426.022-factory-4e8d2826.zip -d unpack
         cd unpack/oriole_beta-ap31.240426.022
@@ -58,6 +54,10 @@ jobs:
         cp vendor_boot.img ../../..
         cd ../../..
         rm -rf unpack
+      working-directory: workspace
+    - name: Repo Sync
+      run: |
+        repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
       working-directory: workspace
     - name: Extract ramdisk
       run: |
