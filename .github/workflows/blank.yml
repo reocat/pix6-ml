@@ -20,7 +20,7 @@ jobs:
       run: |
         sudo apt update
         sudo apt -y upgrade
-        sudo apt -y install gperf gcc-multilib gcc-10-multilib g++-multilib g++-10-multilib libc6-dev lib32ncurses5-dev x11proto-core-dev libx11-dev tree lib32z-dev libgl1-mesa-dev libxml2-utils xsltproc bc ccache lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev libwxgtk3.0-gtk3-dev libxml2 lzop pngcrush schedtool squashfs-tools imagemagick libbz2-dev lzma ncftp qemu-user-static libstdc++-10-dev libncurses5 python3
+        sudo apt -y install aria2 gperf gcc-multilib gcc-10-multilib g++-multilib g++-10-multilib libc6-dev lib32ncurses5-dev x11proto-core-dev libx11-dev tree lib32z-dev libgl1-mesa-dev libxml2-utils xsltproc bc ccache lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev libwxgtk3.0-gtk3-dev libxml2 lzop pngcrush schedtool squashfs-tools imagemagick libbz2-dev lzma ncftp qemu-user-static libstdc++-10-dev libncurses5 python3
     - name: Install OpenJDK
       uses: actions/setup-java@v3
       with:
@@ -48,7 +48,16 @@ jobs:
       working-directory: workspace
     - name: Fetch vendor_boot
       run: |
-        wget -O vendor_boot.img https://sourceforge.net/projects/project-elixir/files/fourteen/oriole/v4.2/vendor_boot_ProjectElixir_4.2_oriole-14.0-20240426-0555-OFFICIAL.img
+        aria2c -j $(nproc --all) https://dl.google.com/developers/android/vic/images/factory/oriole_beta-ap31.240426.022-factory-4e8d2826.zip >> /dev/null 2>&
+        mkdir unpack
+        unzip oriole_beta-ap31.240426.022-factory-4e8d2826.zip -d unpack
+        cd unpack/oriole_beta-ap31.240426.022
+        mkdir rom
+        unzip image* -d rom
+        cd rom
+        cp vendor_boot.img ../../..
+        cd ../../..
+        rm -rf unpack
       working-directory: workspace
     - name: Extract ramdisk
       run: |
