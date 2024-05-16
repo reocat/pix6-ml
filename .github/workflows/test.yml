@@ -26,6 +26,7 @@ jobs:
         java-version: '8'  
     - name: Install repo
       run: |
+        mkdir out
         aria2c -j $(nproc --all) https://dl.google.com/developers/android/vic/images/factory/oriole_beta-ap31.240426.022-factory-4e8d2826.zip >> /dev/null 2>&1  
         mkdir unpack
         unzip oriole_beta-ap31.240426.022-factory-4e8d2826.zip -d unpack
@@ -33,7 +34,16 @@ jobs:
         mkdir rom
         unzip image* -d rom
         cd rom
-        cp vendor_boot.img ../../..
+        cp boot.img ../../../out
+        cp dtbo.img ../../../out
+        cp vendor_boot.img ../../../out
+        cp vendor_dlkm.img ../../../out
         rm -rf unpack
         ls -l
         pwd
+        
+    - name: Upload kernel
+      uses: actions/upload-artifact@v4
+      with:
+        name: Mainline-${{ steps.get_time.outputs.TIME }}
+        path: "out/*"
