@@ -44,10 +44,9 @@ jobs:
       id: pwd
     - name: Fetch vendor_boot
       run: |
-        aria2c -j $(nproc --all) https://dl.google.com/developers/android/vic/images/factory/oriole_beta-ap31.240426.022-factory-4e8d2826.zip
-        mkdir unpack
-        unzip oriole_beta-ap31.240426.022-factory-4e8d2826.zip -d unpack
-        cd unpack/oriole_beta-ap31.240426.022
+        aria2c -j $(nproc --all) https://releases.grapheneos.org/oriole-factory-2024050700.zip
+        unzip oriole-factory-2024050700.zip -d unpack
+        cd unpack/*
         mkdir rom
         unzip image* -d rom
         cd rom
