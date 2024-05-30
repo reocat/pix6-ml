@@ -43,11 +43,11 @@ jobs:
         repo init -u https://android.googlesource.com/kernel/manifest -b gs-android-gs-raviole-mainline
       id: pwd
 #    - name: Fetch vendor_boot
-#     run: |
-#        aria2c -j $(nproc --all) https://releases.grapheneos.org/oriole-factory-2024051500.zip
-#       unzip oriole-factory-2024051500.zip -d unpack
+#      run: |
+#        aria2c -o factory.zip -j $(nproc --all) https://release.calyxinstitute.org/oriole-factory-24507000.zip 
+#        unzip factory.zip -d unpack
 #        cd unpack/*
-#       mkdir rom
+#        mkdir rom
 #        unzip image* -d rom
 #        cd rom
 #        cp vendor_boot.img ../../..
@@ -56,7 +56,7 @@ jobs:
 #      working-directory: workspace
     - name: Fetch vendor_boot
       run: |
-        aria2c -j $(nproc --all) https://github.com/reocat/pix6-ml/raw/main/vendor_boot.img
+        aria2c -o vendor_boot.img -j $(nproc --all) https://sourceforge.net/projects/crdroid/files/oriole/10.x/recovery/vendor_boot.img
       working-directory: workspace
     - name: Repo Sync
       run: |
