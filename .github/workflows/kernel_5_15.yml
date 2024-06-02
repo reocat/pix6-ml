@@ -14,8 +14,8 @@ jobs:
       id: get_time
       run: |
         echo "TIME=$(TZ=UTC+3 date +%s )" >> $GITHUB_OUTPUT
-    - name: Cleanup
-      uses: rokibhasansagar/slimhub_actions@main
+    - name: Maximize build disk space
+      uses: easimon/maximize-build-space@v10
     - name: Prepare the environment
       run: |
         sudo apt update
