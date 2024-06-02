@@ -1,4 +1,4 @@
-name: Compile 6.1 kernel
+name: Compile 5.15 kernel
 
 on:
   workflow_dispatch:
