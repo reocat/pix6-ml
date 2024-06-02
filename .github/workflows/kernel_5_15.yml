@@ -77,12 +77,12 @@ jobs:
       working-directory: workspace
     - name: Move flashable images
       run: |
-        cd out/slider/dist/
-        mkdir mainline
-        mv *img mainline
+        cd out/android13-5.15/dist
+        mkdir img_path
+        mv *img img_path
       working-directory: workspace
     - name: Upload kernel
       uses: actions/upload-artifact@v4
       with:
         name: almost-mainline-${{ steps.get_time.outputs.TIME }}
-        path: "workspace/out/android13-5.15/dist/*"
+        path: "workspace/out/android13-5.15/dist/img_path/*"
