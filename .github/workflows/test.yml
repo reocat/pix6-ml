@@ -27,13 +27,18 @@ jobs:
     - name: Install repo
       run: |
         mkdir out
-        aria2c -j$(nproc --all) https://sourceforge.net/projects/derpfest/files/oriole/DerpFest-14-Official-Stable-oriole-20240531.zip  
-        mkdir unpack
+        aria2c -j$(nproc --all) https://sourceforge.net/projects/derpfest/files/oriole/DerpFest-14-Official-Stable-oriole-20240531.zip
         aria2c -j$(nproc --all) https://github.com/ssut/payload-dumper-go/releases/download/1.2.2/payload-dumper-go_1.2.2_linux_amd64.tar.gz
         tar -xzvf payload-du*
         chmod +x payload-dumper-go
+        ./payload-dumper-go DerpFest-14-Official-Stable-oriole-20240531.zip
+        cd extr*
+        mv boot.img ../out
+        mv dtbo.img ../out
+        mv vendor_boot.img ../out
+        mv vendor_dlkm.img ../out
     - name: Upload kernel
       uses: actions/upload-artifact@v4
       with:
-        name: Mainline-${{ steps.get_time.outputs.TIME }}
+        name: recovery-${{ steps.get_time.outputs.TIME }}
         path: "out/*"
