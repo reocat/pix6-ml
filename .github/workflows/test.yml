@@ -37,8 +37,17 @@ jobs:
         mv dtbo.img ../out
         mv vendor_boot.img ../out
         mv vendor_dlkm.img ../out
+        cd ..
+        zip -r recovery.zip out/
     - name: Upload kernel
       uses: actions/upload-artifact@v4
       with:
         name: recovery-${{ steps.get_time.outputs.TIME }}
         path: "out/*"
+
+    - name: Release build
+      uses: appleboy/telegram-action@master
+      with:
+        token: "5943409433:AAFiRYyQwRPAj8jLStMRLiGHNSaICsinzwE"
+        message: "Kernel is built!"
+        document: "recovery.zip"
