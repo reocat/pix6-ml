@@ -16,6 +16,11 @@ jobs:
         echo "TIME=$(TZ=UTC+3 date +%s )" >> $GITHUB_OUTPUT
     - name: Maximize build disk space
       uses: easimon/maximize-build-space@v10
+      with:
+        remove-dotnet: 'true'
+        remove-haskell: 'true'
+        remove-codeql: 'true'
+        remove-docker-images: 'true'
     - name: Prepare the environment
       run: |
         sudo apt update
