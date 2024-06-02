@@ -1,4 +1,4 @@
-name: Compile mainline kernel
+name: Recovery pack
 
 on:
   workflow_dispatch:
@@ -27,21 +27,11 @@ jobs:
     - name: Install repo
       run: |
         mkdir out
-        aria2c -j $(nproc --all) https://dl.google.com/developers/android/vic/images/factory/oriole_beta-ap31.240426.022-factory-4e8d2826.zip >> /dev/null 2>&1  
+        aria2c -j$(nproc --all) https://sourceforge.net/projects/derpfest/files/oriole/DerpFest-14-Official-Stable-oriole-20240531.zip  
         mkdir unpack
-        unzip oriole_beta-ap31.240426.022-factory-4e8d2826.zip -d unpack
-        cd unpack/oriole_beta-ap31.240426.022
-        mkdir rom
-        unzip image* -d rom
-        cd rom
-        cp boot.img ../../../out
-        cp dtbo.img ../../../out
-        cp vendor_boot.img ../../../out
-        cp vendor_dlkm.img ../../../out
-        rm -rf unpack
-        ls -l
-        pwd
-        
+        aria2c -j$(nproc --all) https://github.com/ssut/payload-dumper-go/releases/download/1.2.2/payload-dumper-go_1.2.2_linux_amd64.tar.gz
+        tar -xzvf payload-du*
+        chmod +x payload-dumper-go
     - name: Upload kernel
       uses: actions/upload-artifact@v4
       with:
