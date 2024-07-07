@@ -1,4 +1,4 @@
-name: Compile mainline kernel
+name: Compile (not so) mainline kernel
 
 on:
   workflow_dispatch:
@@ -73,7 +73,8 @@ jobs:
 #        curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
 #      working-directory: workspace
     - name: Compile kernel
-      run: tools/bazel run --config=fast --config=stamp //private/google-modules/soc/gs:slider_dist
+      run: chmod 777 build_slider.sh && ./build_slider.sh
+      # tools/bazel run --config=fast --config=stamp //private/google-modules/soc/gs:slider_dist
       working-directory: workspace
     - name: Move flashable images
       run: |
