@@ -37,7 +37,7 @@ jobs:
         mv dtbo.img ../out
         mv vendor_boot.img ../out
         mv vendor_dlkm.img ../out
-        mv system_dlkm.img ../out =
+        mv system_dlkm.img ../out 
         cd ..
         zip -r recovery.zip out/
     - name: Upload kernel
