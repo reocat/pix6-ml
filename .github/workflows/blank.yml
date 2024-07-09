@@ -71,7 +71,8 @@ jobs:
       run: |
         ls -l
         ls -l kernel
-        tree
+        cd aosp
+        ls -l
         curl -fsSL "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
       working-directory: workspace
     - name: Compile kernel
