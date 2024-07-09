@@ -70,9 +70,8 @@ jobs:
     - name: Integrate KernelSU
       run: |
         ls -l
-        find . -name "common" -type f
-        find . -name "arch" -type f
-        cd */common
+        ls -l kernel
+        tree
         curl -fsSL "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
       working-directory: workspace
     - name: Compile kernel
