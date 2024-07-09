@@ -69,7 +69,7 @@ jobs:
       working-directory: workspace
     - name: Integrate KernelSU
       run: |
-        cd common
+        cd kernel/common
         curl -fsSL "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
       working-directory: workspace
     - name: Compile kernel
