@@ -67,11 +67,11 @@ jobs:
         tools/mkbootimg/unpack_bootimg.py --boot_img vendor_boot.img --out vendor_boot_out
         cp vendor_boot_out/vendor-ramdisk-by-name/ramdisk_ prebuilts/boot-artifacts/ramdisks/vendor_ramdisk-oriole.img
       working-directory: workspace
-#   - name: Integrate KernelSU
-#      run: |
-#        cd common
-#        curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
-#      working-directory: workspace
+    - name: Integrate KernelSU
+      run: |
+        cd common
+        curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
+      working-directory: workspace
     - name: Compile kernel
       run: chmod 777 build_slider.sh && ./build_slider.sh
       # tools/bazel run --config=fast --config=stamp //private/google-modules/soc/gs:slider_dist
