@@ -70,7 +70,7 @@ jobs:
     - name: Integrate KernelSU
       run: |
         cd common
-        curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
+        curl -fsSL "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
       working-directory: workspace
     - name: Compile kernel
       run: chmod 777 build_slider.sh && ./build_slider.sh
