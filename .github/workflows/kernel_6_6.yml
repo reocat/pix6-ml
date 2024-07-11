@@ -64,8 +64,9 @@ jobs:
           curl -fsSL https://github.com/ssut/payload-dumper-go/releases/download/1.2.2/payload-dumper-go_1.2.2_linux_amd64.tar.gz | tar -xzvf -
           sudo mv payload-dumper-go /bin
           payload-dumper-go -p vendor_boot rom.zip
-          mv */vendor_boot.img .
+          mv extr*/vendor_boot.img .
           rm -rf rom.zip
+      working-directory: workspace
     - name: Repo Sync
       run: |
         repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
