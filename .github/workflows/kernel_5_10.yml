@@ -93,5 +93,5 @@ jobs:
     - name: Upload kernel
       uses: actions/upload-artifact@v4
       with:
-        name: almost-mainline-${{ steps.get_time.outputs.TIME }}
-        path: "workspace/out/slider/dist/mainline/*"
+        name: totally-not-mainline-${{ steps.get_time.outputs.TIME }}
+        path: "workspace/out/mixed/dist/mainline/*"
