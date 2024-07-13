@@ -71,16 +71,16 @@ jobs:
       run: |
         repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
       working-directory: workspace
-#    - name: Extract ramdisk
-#      run: |
-#        tools/mkbootimg/unpack_bootimg.py --boot_img vendor_boot.img --out vendor_boot_out
-#        cp vendor_boot_out/vendor-ramdisk-by-name/ramdisk_ prebuilts/boot-artifacts/ramdisks/vendor_ramdisk-oriole.img
-#      working-directory: workspace
-#    - name: Integrate KernelSU
-#      run: |
-#        cd common
-#        curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s main
-#      working-directory: workspace
+    - name: Extract ramdisk
+      run: |
+        tools/mkbootimg/unpack_bootimg.py --boot_img vendor_boot.img --out vendor_boot_out
+        cp vendor_boot_out/vendor-ramdisk-by-name/ramdisk_ prebuilts/boot-artifacts/ramdisks/vendor_ramdisk-oriole.img
+      working-directory: workspace
+    - name: Integrate KernelSU
+      run: |
+        cd aosp
+        curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s main
+      working-directory: workspace
     - name: Compile kernel
       run: ./build_slider.sh
       working-directory: workspace
