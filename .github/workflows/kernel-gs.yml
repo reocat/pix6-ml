@@ -69,7 +69,7 @@ jobs:
       working-directory: workspace
     - name: Repo Sync
       run: |
-        repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
+        repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j32
       working-directory: workspace
     - name: Extract ramdisk
       run: |
