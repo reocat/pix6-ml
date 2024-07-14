@@ -1,4 +1,4 @@
-name: Compile 5.10 kernel
+name: Compile 5.10 kernel (gs-bluraviole)
 
 on:
   workflow_dispatch:
@@ -14,8 +14,16 @@ jobs:
       id: get_time
       run: |
         echo "TIME=$(TZ=UTC+3 date +%s )" >> $GITHUB_OUTPUT
-    - name: Cleanup
-      uses: rokibhasansagar/slimhub_actions@main
+    - name: Remove unused packages
+      uses: jlumbroso/free-disk-space@main
+      with:
+        tool-cache: ture
+        android: false
+        dotnet: true
+        haskell: true
+        large-packages: true
+        docker-images: true
+        swap-storage: false
     - name: Prepare the environment
       run: |
         sudo apt update
