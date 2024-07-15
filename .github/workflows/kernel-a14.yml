@@ -1,4 +1,4 @@
-name: Compile 5.10 kernel (gs-bluraviole)
+name: Compile 5.10 kernel (android-14)
 
 on:
   workflow_dispatch:
