@@ -76,8 +76,9 @@ jobs:
         curl -fsSL "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
       working-directory: workspace
     - name: Compile kernel
-      run: chmod 777 build_slider.sh && ./build_slider.sh
-      # tools/bazel run --config=fast --config=stamp //private/google-modules/soc/gs:slider_dist
+      run: |
+        chmod 777 build_slider.sh 
+        BUILD_AOSP_KERNEL=1 LTO=full ./build_slider.sh
       working-directory: workspace
     - name: Move flashable images
       run: |
@@ -88,5 +89,5 @@ jobs:
     - name: Upload kernel
       uses: actions/upload-artifact@v4
       with:
-        name: Mainline-${{ steps.get_time.outputs.TIME }}
+        name: hOS-krnl-${{ steps.get_time.outputs.TIME }}
         path: "workspace/out/slider/dist/mainline/*"
