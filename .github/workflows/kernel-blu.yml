@@ -40,7 +40,7 @@ jobs:
         echo "workspace-folder=$(pwd)" >> $GITHUB_OUTPUT
         git config --global user.name "reocat"
         git config --global user.email "ng.ct_ml@tuta.io"
-        repo init -u https://github.com/reocat/oriole-ml-manifest -b gs-bluraviole
+        repo init -u https://github.com/reocat/oriole-ml-manifest -b blu_spark-14-sus
       id: pwd
 #    - name: Fetch vendor_boot
 #      run: |
