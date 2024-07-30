@@ -69,10 +69,10 @@ jobs:
       working-directory: workspace
     - name: Replace clang
       run: | 
-        cd prebuilts/clang/host/linux-x86
+        cd prebuilts/clang/host/linux-x86/clang-r487747c
         rm -rf -- ./*/
         aria2c -j$(nproc --all) $(curl -fsSL https://github.com/ZyCromerZ/Clang/raw/main/Clang-main-link.txt)
-        tar -xzvf Clang-*.tar.gz -C zyc-clang >> /dev/null
+        tar -xzvf Clang-*.tar.gz >> /dev/null
       working-directory: workspace
     - name: Integrate KernelSU
       run: |
