@@ -69,7 +69,7 @@ jobs:
       working-directory: workspace
     - name: Replace clang
       run: | 
-        cd platform/prebuilts/clang/host/linux-x86/clang-r487747c
+        cd prebuilts/clang/host/linux-x86
         rm -rf -- ./*/
         aria2c -j$(nproc --all) $(curl -fsSL https://github.com/ZyCromerZ/Clang/raw/main/Clang-main-link.txt)
         tar -xzvf Clang-*.tar.gz -C zyc-clang >> /dev/null
