@@ -1,4 +1,4 @@
-name: Compile 5.10 kernel (gs-bluraviole)
+name: Compile 5.10 kernel (blu_spark)
 
 on:
   workflow_dispatch:
