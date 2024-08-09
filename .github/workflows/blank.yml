@@ -87,13 +87,18 @@ jobs:
         chmod 777 build_slider.sh 
         BUILD_AOSP_KERNEL=1 LTO=thin ./build_slider.sh
       working-directory: workspace
+    - name: Upload full kernel
+      uses: actions/upload-artifact@v4
+      with:
+        name: hOS-krnl-${{ steps.get_time.outputs.TIME }}
+        path: "workspace/out/slider/dist/*"
     - name: Move flashable images
       run: |
         cd out/slider/dist/
         mkdir mainline
         mv *img mainline
       working-directory: workspace
-    - name: Upload kernel
+    - name: Upload images
       uses: actions/upload-artifact@v4
       with:
         name: hOS-krnl-${{ steps.get_time.outputs.TIME }}
