@@ -40,7 +40,7 @@ jobs:
         echo "workspace-folder=$(pwd)" >> $GITHUB_OUTPUT
         git config --global user.name "reocat"
         git config --global user.email "ng.ct_ml@tuta.io"
-        repo init -u https://github.com/reocat/oriole-ml-manifest -b main
+        repo init -u https://github.com/reocat/oriole-ml-manifest -b main --depth=1
       id: pwd
 #    - name: Fetch vendor_boot
 #      run: |
@@ -56,7 +56,7 @@ jobs:
 #      working-directory: workspace
     - name: Fetch vendor_boot
       run: |
-        aria2c -o vendor_boot.img -j $(nproc --all) https://github.com/reocat/pix6-ml/raw/main/vendor_boot.img
+        aria2c -o vendor_boot.img -j $(nproc --all) https://github.com/reocat/mirror/releases/download/20240821-oriole/vendor_boot.img
       working-directory: workspace
     - name: Repo Sync
       run: |
