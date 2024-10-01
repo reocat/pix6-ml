@@ -91,10 +91,10 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: hOS-krnl-${{ steps.get_time.outputs.TIME }}-full
-        path: "workspace/out/slider/dist/*"
+        path: "workspace/out/raviole/dist/*"
     - name: Move flashable images
       run: |
-        cd out/slider/dist/
+        cd out/raviole/dist/
         mkdir mainline
         mv *img mainline
       working-directory: workspace
@@ -102,4 +102,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: hOS-krnl-${{ steps.get_time.outputs.TIME }}-images
-        path: "workspace/out/slider/dist/mainline/*"
+        path: "workspace/out/raviole/dist/mainline/*"
