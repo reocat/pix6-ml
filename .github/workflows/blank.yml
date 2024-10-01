@@ -84,7 +84,7 @@ jobs:
       working-directory: workspace
     - name: Compile kernel
       run: |
-        chmod 777 build_slider.sh 
+        chmod 777 build_raviole.sh 
         BUILD_AOSP_KERNEL=1 LTO=thin ./build_raviole.sh
       working-directory: workspace
     - name: Upload full kernel
