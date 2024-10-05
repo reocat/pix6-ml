@@ -56,7 +56,7 @@ jobs:
 #      working-directory: workspace
     - name: Fetch vendor_boot
       run: |
-        aria2c -o vendor_boot.img -j $(nproc --all) https://github.com/reocat/mirror/releases/download/20240821-oriole/vendor_boot.img
+        aria2c -o vendor_boot.img -j $(nproc --all) https://github.com/reocat/pix6-ml/raw/refs/heads/main/vendor_boot.img
       working-directory: workspace
     - name: Repo Sync
       run: |
