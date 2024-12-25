@@ -96,7 +96,7 @@ jobs:
     - name: Compile kernel
       run: |
         chmod 777 build_raviole.sh 
-        BUILD_AOSP_KERNEL=1 LTO=thin ./build_raviole.sh
+        ./build_raviole.sh
       working-directory: workspace
     - name: Upload full kernel
       uses: actions/upload-artifact@v4
