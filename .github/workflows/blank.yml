@@ -42,7 +42,7 @@ jobs:
         git config --global user.email "ng.ct_ml@tuta.io"
         repo init -u https://github.com/reocat/oriole-ml-manifest -b hentai-6.1 --depth=1
       id: pwd
-    - name: Fetch vendor_boot
+#    - name: Fetch vendor_boot
 #      run: |
 #        aria2c -o factory.zip -j $(nproc --all) https://release.calyxinstitute.org/oriole-factory-24507000.zip 
 #        unzip factory.zip -d unpack
