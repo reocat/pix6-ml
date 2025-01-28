@@ -44,7 +44,7 @@ jobs:
       id: pwd
     - name: Fetch vendor_boot
       run: |
-        aria2c -o factory.zip -j $(nproc --all) https://dl.google.com/dl/android/aosp/raven-ap1a.240505.004-factory-9d783215.zip 
+        aria2c -o factory.zip -j $(nproc --all) https://dl.google.com/developers/android/vic/images/factory/oriole_beta-bp11.241210.004-factory-57395d1f.zip
         unzip factory.zip -d unpack
         cd unpack/*
         mkdir rom
