@@ -81,7 +81,7 @@ jobs:
       working-directory: workspace
     - name: Integrate KernelSU
       run: |
-        cd common
+        cd aosp
         curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s next      working-directory: workspace
     - name: Compile kernel
       run: tools/bazel run --config=fast --config=stamp //private/google-modules/soc/gs:slider_dist
