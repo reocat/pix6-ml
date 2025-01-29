@@ -40,7 +40,7 @@ jobs:
         echo "workspace-folder=$(pwd)" >> $GITHUB_OUTPUT
         git config --global user.name "reocat"
         git config --global user.email "ng.ct_ml@tuta.io"
-        repo init -u https://android.googlesource.com/kernel/manifest -b android14-gs-pixel-6.1
+        repo init -u https://android.googlesource.com/kernel/manifest -b android-gs-raviole-6.1-android15-qpr2-beta
       id: pwd
 #    - name: Fetch vendor_boot
 #      run: |
