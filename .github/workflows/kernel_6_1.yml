@@ -77,7 +77,8 @@ jobs:
     - name: Extract ramdisk
       run: |
         tools/mkbootimg/unpack_bootimg.py --boot_img vendor_boot.img --out vendor_boot_out
-        cp vendor_boot_out/vendor-ramdisk-by-name/ramdisk_ prebuilts/boot-artifacts/ramdisks/vendor_ramdisk-oriole.img
+        mkdir -p prebuilts/boot-artifacts/ramdisks
+        cp vendor_boot_out/vendor-ramdisk-by-name/ramdisk_* prebuilts/boot-artifacts/ramdisks/vendor_ramdisk-oriole.img
       working-directory: workspace
     - name: Integrate KernelSU
       run: |
