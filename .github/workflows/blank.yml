@@ -60,7 +60,7 @@ jobs:
 #      working-directory: workspace
     - name: Fetch vendor_boot
       run: |
-          aria2c -j$(nproc --all) -o rom.zip https://no-more-deals.helluvaos.com/bunnyplatoon?X-Hws-NRGFielD=CjhvcmlvbGUtVmFsbGhvdW5kLW90YS1hcDRhLjI0MTIwNS4wMTMuYjEtUkVMLjEyMTcyMTU2LnppcBIMCIf547sGENa36NkB
+          aria2c -j$(nproc --all) -o rom.zip https://no-more-deals.helluvaos.com/bunnyplatoon?X-Hws-NRGFielD=CjhvcmlvbGUtVmFsbGhvdW5kLW90YS1hcDRhLjI1MDEwNS4wMDIuYjEtUkVMLjAxMTMxNDU4LnppcBIMCLz4gL0GEOnu-uQC
           curl -fsSL https://github.com/ssut/payload-dumper-go/releases/download/1.2.2/payload-dumper-go_1.2.2_linux_amd64.tar.gz | tar -xzvf -
           sudo mv payload-dumper-go /bin
           payload-dumper-go -p vendor_boot rom.zip
