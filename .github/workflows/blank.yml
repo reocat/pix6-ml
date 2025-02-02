@@ -92,7 +92,7 @@ jobs:
         cd aosp
         ls -l
         curl -fsSL https://gitlab.com/simonpunk/susfs4ksu/-/raw/gki-android14-6.1/kernel_patches/50_add_susfs_in_gki-android14-6.1.patch | git am -
-        curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s next-susfs-a14-6.1
+        curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s next
       working-directory: workspace
     - name: Compile kernel
       run: |
